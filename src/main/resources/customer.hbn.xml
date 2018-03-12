@@ -4,13 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-
     <class name="models.Customer" table="customers">
         <id name="id" type="int" column="id">
             <generator class="identity"></generator>
         </id>
         <property name="name" column="name" type="string"/>
-
+        <many-to-one name="coffeeorder" class="models.CoffeeOrder" column="coffeeorder_id" lazy="false" not-null="true"/>
     </class>
-
 </hibernate-mapping>

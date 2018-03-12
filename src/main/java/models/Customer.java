@@ -1,15 +1,15 @@
 package models;
 
 public class Customer {
-
     private int id;
     private String name;
+    private CoffeeOrder coffeeOrder;
 
-    public Customer(){
-    }
+    public Customer() {}
 
-    public Customer(String name){
+    public Customer(String name, CoffeeOrder coffeeOrder) {
         this.name = name;
+        this.coffeeOrder = coffeeOrder;
     }
 
     public int getId() {
@@ -26,5 +26,13 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CoffeeOrder getCoffeeOrder() {
+        return coffeeOrder;
+    }
+
+    public void setCoffeeOrder(CoffeeOrder coffeeOrder) {
+        this.coffeeOrder = coffeeOrder;
     }
 }

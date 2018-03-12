@@ -3,14 +3,16 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
+
 <hibernate-configuration>
     <session-factory>
+        <property name="hbm2ddl.auto">create-drop</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.url">jdbc:postgresql://localhost/orderdb</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="connection.pool_size">1</property>
-        <property name="hbm2ddl.auto">create-drop</property>
         <property name="show_sql">true</property>
         <mapping resource="customer.hbn.xml"/>
+        <mapping resource="coffeeorder.hbn.xml"/>
     </session-factory>
 </hibernate-configuration>
