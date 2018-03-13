@@ -9,6 +9,6 @@
             <generator class="identity"></generator>
         </id>
         <property name="name" column="name" type="string"/>
-        <many-to-one name="coffeeOrder" class="models.CoffeeOrder" column="coffeeorder_id" lazy="false" not-null="true"/>
+        <many-to-one name="coffeeOrder" class="models.CoffeeOrder" column="coffeeOrder_id" lazy="false" not-null="true"/>
     </class>
 </hibernate-mapping>

@@ -17,11 +17,16 @@ public class Main {
         DBHelper.save(customer1);
         Customer customer2 = new Customer("Emma",coffeeOrder2);
         DBHelper.save(customer2);
+        Customer customer3 = new Customer("Will",coffeeOrder2);
+        DBHelper.save(customer3);
 
         customer1.setCoffeeOrder(coffeeOrder3);
         DBHelper.update(customer1);
 
-        List<Customer> customers = DBHelper.getAll("Customer");
-        List<CoffeeOrder> coffeeOrders = DBHelper.getAll("CoffeeOrder");
+        List<Customer> foundCustomers = DBHelper.getAll("Customer");
+        List<CoffeeOrder> foundCoffeeOrders = DBHelper.getAll("CoffeeOrder");
+
+        Customer foundCustomer = DBHelper.getObjectByID("Customer", customer1.getId());
+
     }
 }

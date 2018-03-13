@@ -80,7 +80,7 @@ public class DBHelper {
         List<Customer> customers = null;
         try {
             transaction = session.beginTransaction();
-            String hql = "from Employee WHERE coffeeorder_id = :id";
+            String hql = "from Employee WHERE coffeeOrder_id = :id";
             Query query = session.createQuery(hql);
             query.setInteger("id", id);
             customers = query.list();
@@ -93,6 +93,26 @@ public class DBHelper {
         }
         return customers;
     }
+
+    public static <T> T getObjectByID(String className, int id){
+        session = HibernateUtil.getSessionFactory().openSession();
+        T result = null;
+        try {
+            transaction = session.beginTransaction();
+            String hql = "from " + className + " where id = :id";
+            Query query = session.createQuery(hql);
+            query.setInteger("id", id);
+            result = (T)query.uniqueResult();
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return result;
+    }
+
 }
 
 

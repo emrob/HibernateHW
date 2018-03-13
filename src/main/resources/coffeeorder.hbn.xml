@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "models.CoffeeOrder" table = "coffeeorder">
+    <class name = "models.CoffeeOrder" table = "coffeeOrder">
         <id name = "id" type = "int" column = "id">
             <generator class="identity"/>
         </id>
@@ -12,7 +12,7 @@
 
         <set name="customers" inverse="true" cascade="all" lazy="true">
             <key>
-                <column name="coffeeorder_id" not-null="true"/>
+                <column name="coffeeOrder_id" not-null="true"/>
             </key>
             <one-to-many class="models.Customer"/>
         </set>
