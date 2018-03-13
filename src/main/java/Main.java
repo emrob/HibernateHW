@@ -11,10 +11,15 @@ public class Main {
         DBHelper.save(coffeeOrder1);
         CoffeeOrder coffeeOrder2 = new CoffeeOrder("Americano");
         DBHelper.save(coffeeOrder2);
+        CoffeeOrder coffeeOrder3 = new CoffeeOrder("Flat white");
+        DBHelper.save(coffeeOrder3);
         Customer customer1 = new Customer("Mark",coffeeOrder1);
         DBHelper.save(customer1);
         Customer customer2 = new Customer("Emma",coffeeOrder2);
         DBHelper.save(customer2);
+
+        customer1.setCoffeeOrder(coffeeOrder3);
+        DBHelper.update(customer1);
 
         List<Customer> customers = DBHelper.getAll("Customer");
         List<CoffeeOrder> coffeeOrders = DBHelper.getAll("CoffeeOrder");
